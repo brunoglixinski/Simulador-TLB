@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     int n = 150; 
 
-    // Alocação de matriz 2D no Heap (estilo C++)
+    // Alocação de matriz 2D
     int **A = new int*[n];
     for (int i = 0; i < n; i++) {
         A[i] = new int[n];

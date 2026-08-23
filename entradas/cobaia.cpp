@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     int tamanho = 20000;
 
-    // Alocação dinâmica no Heap (estilo C++)
+    // Alocação dinâmica
     int *vetor = new int[tamanho];
 
     for (int i = 0; i < tamanho; i++) {
