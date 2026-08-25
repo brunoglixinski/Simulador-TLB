@@ -54,7 +54,7 @@ def simulacao(seq_acessos, capacidades=[4, 6, 8, 10]):
             taxa_formatada = f"{taxa_miss:.2f}%"
             print(f"{cap:^20} | {pol:^20} | {simulador.hits:^20} | {simulador.misses:^20} | {taxa_formatada:^20}")
 
-# --- Automação de Execução em Lote ---
+# Execução das simulações
 
 testes = [
     ("Aplicação 1: Cobaia (Vetor)", "cobaia_ref.txt"),

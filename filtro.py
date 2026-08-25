@@ -1,8 +1,7 @@
 import os
 
-# Lista com os dois traces que geramos
+# Lista com os dois traces que nós geramos
 arquivos_trace = ["cobaia.trace", "matriz.trace"]
-
 for arquivo_trace in arquivos_trace:
     # Cria o nome do arquivo de saida automaticamente
     arquivo_saida = arquivo_trace.replace(".trace", "_ref.txt")
@@ -11,7 +10,7 @@ for arquivo_trace in arquivos_trace:
     tamanho_ref_string = 0
     ultima_pagina = ""
     
-    print(f"\n--- Processando {arquivo_trace} ---")
+    print(f"\nProcessando {arquivo_trace}...")
     
     try:
         with open(arquivo_trace, "r") as trace, open(arquivo_saida, "w") as ref:
