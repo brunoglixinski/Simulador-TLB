@@ -51,27 +51,23 @@ def simulacao(seq_acessos, capacidades=[4, 6, 8, 10]):
             
             total, taxa_hit, taxa_miss = simulador.obter_metricas()
             
-            resultados.append({
-                'capacidade': cap,
-                'politica': pol,
-                'hits': simulador.hits,
-                'misses': simulador.misses,
-                'taxa_miss': taxa_miss
-            })
-            
             taxa_formatada = f"{taxa_miss:.2f}%"
             print(f"{cap:^20} | {pol:^20} | {simulador.hits:^20} | {simulador.misses:^20} | {taxa_formatada:^20}")
 
-    return resultados
+# --- Automação de Execução em Lote ---
 
-# --- Integração de Dados ---
-print("Carregando arquivo de acessos na memoria... Aguarde.")
-try:
-    with open("reference_string.txt", "r") as arquivo:
-        # Lê o arquivo e remove as quebras de linha
-        seq_real = [linha.strip() for linha in arquivo]
-    
-    print(f"--- Iniciando Simulação com {len(seq_real)} acessos à memoria ---")
-    simulacao(seq_real, capacidades=[4, 6, 8, 10])
-except FileNotFoundError:
-    print("Erro: O arquivo 'reference_string.txt' nao foi encontrado nesta pasta.")
+testes = [
+    ("Aplicação 1: Cobaia (Vetor)", "cobaia_ref.txt"),
+    ("Aplicação 2: Matriz", "matriz_ref.txt")
+]
+
+for nome_teste, arquivo_txt in testes:
+    print(f"\n\n{'='*30}\n{nome_teste}\n{'='*30}")
+    try:
+        with open(arquivo_txt, "r") as arquivo:
+            seq_real = [linha.strip() for linha in arquivo]
+        
+        print(f"Simulando {len(seq_real)} acessos à memoria...")
+        simulacao(seq_real, capacidades=[4, 6, 8, 10])
+    except FileNotFoundError:
+        print(f"Erro: O arquivo '{arquivo_txt}' não foi encontrado.")
